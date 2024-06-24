@@ -1,22 +1,14 @@
-function btFunction1() {
-    $(document).ready(function() {
-        $('#formulario').slideDown();
-
-        $('#formulario').on('submit', function(e) {
-            e.preventDefault();
-        })
+$(document).ready(function() {
+    $('header button').click(function(){
+    $('#formulario').slideToggle();
     })
-}
 
-function btFunction2() {
-    $(document).ready(function() {
-        $('#formulario').on(btFunction1, function(e){
-            e.preventDefault();
-        });
+    $('#formulario').on('submit', function(e) {
+        e.preventDefault();
+        const inputTarefa = $('#input-tarefas').val();
+        const novoItem = $(`<li><p>${inputTarefa}</p></li>`);
+      
+        $(novoItem).appendTo(`ul`);
+        $(`#input-tarefas`).val('');
     })
-}
-
-$('header button').click(function(){
-    btFunction1();
-    btFunction2();
 })
