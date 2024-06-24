@@ -11,4 +11,10 @@ $(document).ready(function() {
         $(novoItem).appendTo(`ul`);
         $(`#input-tarefas`).val('');
     })
+
+        $('#li-class').on('click', 'li', function() {
+            if(!$(this).hasClass('click-li')) {
+                $(this).addClass('click-li');
+            }
+        })
 })
